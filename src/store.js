@@ -63,6 +63,7 @@ export default new Vuex.Store({
       commit(LOGOUT)
     },
     grabUser ({ commit }) {
+      console.log(process.env.VUE_APP_BASE_API_URL)
       axios.get(`${process.env.VUE_APP_BASE_API_URL}/users/me/`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
