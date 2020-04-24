@@ -20,7 +20,7 @@ spec:
         image: REPLACE_IMAGE
         env:
           - name: VUE_APP_BASE_API_URL
-            value: microblog-backend 
+            value: http://microblog-backend 
 ---
 apiVersion: "v1"
 kind: "Service"
