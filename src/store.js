@@ -28,7 +28,7 @@ export default new Vuex.Store({
   actions: {
     login ({ commit, dispatch }, creds) {
       commit(LOGIN)
-      axios.post(`http://microblog-backend/api/token/`, creds,
+      axios.post(`http://microblog-backend:80/api/token/`, creds,
         {
           headers: {
             'Content-Type': 'application/json'
@@ -45,7 +45,7 @@ export default new Vuex.Store({
         })
     },
     register ({ commit, dispatch }, creds) {
-      axios.post(`http://microblog-backend/users/register/`, creds,
+      axios.post(`http://microblog-backend:80/users/register/`, creds,
         {
           headers: {
             'Content-Type': 'application/json'
@@ -63,7 +63,7 @@ export default new Vuex.Store({
       commit(LOGOUT)
     },
     grabUser ({ commit }) {
-      axios.get(`http://microblog-backend/users/me/`, {
+      axios.get(`http://microblog-backend:80/users/me/`, {
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('token')}`
         }
