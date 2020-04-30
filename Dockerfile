@@ -1,5 +1,5 @@
 ARG NODE_IMAGE=node:lts-alpine
-ARG BUILD_MODE
+ARG BUILD_MODE=build
 
 # build stage
 FROM $NODE_IMAGE as build-stage
@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package.json yarn.lock .env .env.production ./
 RUN yarn install
 COPY . .
-RUN yarn run build
+RUN yarn run $BUILD_MODE
 
 # production stage
 FROM nginx:stable-alpine as production-stage
