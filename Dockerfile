@@ -3,6 +3,7 @@ ARG NODE_IMAGE=node:lts-alpine
 # build stage
 FROM $NODE_IMAGE as build-stage
 ARG BUILD_MODE=build
+
 WORKDIR /app
 COPY package.json yarn.lock .env .env.production ./
 RUN yarn install
